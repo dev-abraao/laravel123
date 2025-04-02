@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="note-container">
         <a href="{{ route('notes.create') }}" class="new-note-btn">
             New Note
@@ -12,10 +12,15 @@
                 <div class="note-buttons">
                     <a href="{{ route('notes.show', $note) }}" class="note-edit-button">View</a>
                     <a href="{{ route('notes.edit', $note) }}" class="note-edit-button">Edit</a>
-                    <button class="note-delete-button">Delete</button>
+                    <form action="{{route('notes.destroy', $note)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="note-delete-button">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
             @endforeach
-</x-layout>
+            {{ $notes->links()}}
+</x-app-layout>
