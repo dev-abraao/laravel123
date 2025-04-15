@@ -1,3 +1,5 @@
+
+## DOCKERFILE FUNCIONANDO, MAS O ENV EXAMPLE TÁ COM SQLITE PARA TESTE, FAZER O COMPOSE COM O DB
 # Build stage for Node.js
 FROM node:20-slim AS node-builder
 WORKDIR /app
