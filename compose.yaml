@@ -1,0 +1,16 @@
+services:
+  app:
+    image: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      ports:
+        - 8000:8000
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db_name
+    ports:
+      - 5432:5432
